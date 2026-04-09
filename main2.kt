@@ -36,18 +36,13 @@ fun punkt(v: Array<Array<String>>): String {
 }
 
 fun main() {
-    val scanner = Scanner(System.`in`)
+    println("Введите количество пар: ")
+    val n = readln().toInt()
     
-    print("Введите количество пар: ")
-    val n = scanner.nextInt()
-    
-    val pairs = Array(n) { arrayOfNulls<String>(2) }
-    
-    println("Введите пары (начало и конец):")
-    for (i in 0 until n) {
-        pairs[i][0] = scanner.next()
-        pairs[i][1] = scanner.next()
+    val pairs = Array(n) { 
+        val pair = readln().split(" ")
+        arrayOf(pair[0], pair[1])
     }
     
-    println(punkt(pairs.map { arrayOf(it[0]!!, it[1]!!) }.toTypedArray()))
+    println(punkt(pairs))
 }
